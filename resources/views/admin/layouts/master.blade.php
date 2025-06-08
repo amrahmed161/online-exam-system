@@ -16,8 +16,17 @@
   <!-- Sidebar -->
   @include('admin.layouts.sidebar')
 
-  <!-- Content -->
-  @yield('content')
+  <!-- Content -->    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <!-- العنوان breadcrumbs ... -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            @yield('content')
+        </section>
+    </div>
 
 </div>
 
