@@ -21,7 +21,13 @@
             <p>Students</p>
             </a>
         </li>
-      </ul>
+        <li class="nav-item">
+            <a href="{{ route('admin.exams.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-file-alt"></i> 
+                <p>Exams</p>
+            </a>
+        </li>
+        </ul>
     </nav>
   </div>
 </aside>

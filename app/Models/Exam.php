@@ -8,31 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     use HasFactory;
-    protected $fillable = [
-    'title',
-    'subject_id',
-    'user_id',
-    'duration',
-];
+        protected $fillable = [
+        'title',
+        'description',
+        'exam_date',
+        'created_by',  // المستخدم اللي أنشأ الامتحان
+        'duration',
+    ];
 
-public function subject()
-{
-    return $this->belongsTo(Subject::class);
-}
+    // علاقة الامتحان بالـ User (اللي هو المُنشئ)
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 
-public function teacher()
-{
-    return $this->belongsTo(User::class, 'user_id');
-}
+    // علاقة الامتحان بالـ Subject (لو عندك كورسات/مواد)
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 
-public function questions()
-{
-    return $this->hasMany(Question::class);
-}
-
-public function studentAnswers()
-{
-    return $this->hasMany(StudentAnswer::class);
-}
-
+    // علاقة الامتحان بالأسئلة
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }
