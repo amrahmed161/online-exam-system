@@ -12,23 +12,26 @@ class Exam extends Model
         'title',
         'description',
         'exam_date',
-        'created_by',  // المستخدم اللي أنشأ الامتحان
+        'created_by',
         'duration',
     ];
 
-    // علاقة الامتحان بالـ User (اللي هو المُنشئ)
+
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
     }
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'exam_student', 'exam_id', 'student_id');
+    }
 
-    // علاقة الامتحان بالـ Subject (لو عندك كورسات/مواد)
+
     public function subject()
     {
         return $this->belongsTo(Subject::class);
     }
 
-    // علاقة الامتحان بالأسئلة
     public function questions()
     {
         return $this->hasMany(Question::class);

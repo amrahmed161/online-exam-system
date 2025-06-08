@@ -43,9 +43,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     public function exams()
-    {
-        return $this->hasMany(Exam::class);
-    }
+{
+    return $this->belongsToMany(Exam::class, 'exam_student', 'student_id', 'exam_id');
+}
+
     public function studentAnswers()
     {
         return $this->hasMany(StudentAnswer::class);

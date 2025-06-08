@@ -23,8 +23,14 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('admin.exams.index') }}" class="nav-link">
-                <i class="nav-icon fas fa-file-alt"></i> 
+                <i class="nav-icon fas fa-file-alt"></i>
                 <p>Exams</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.questions.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-question-circle"></i>
+                <p>Manage Questions</p>
             </a>
         </li>
         </ul>
