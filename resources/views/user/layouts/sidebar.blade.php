@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <a href="{{ route('user.dashboard') }}" class="brand-link">
+  <a href="{{ route(name: 'user.dashboard') }}" class="brand-link">
     <span class="brand-text font-weight-light">Student Panel</span>
   </a>
 
@@ -12,7 +12,16 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <!-- أضف روابط الطالب هنا -->
+        @auth
+    @if(auth()->user()->role == 'student')
+        <li class="nav-item">
+            <a href="{{ route('exams.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>My Exams</p>
+            </a>
+        </li>
+        @endif
+       @endauth
       </ul>
     </nav>
   </div>

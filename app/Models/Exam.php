@@ -36,4 +36,9 @@ class Exam extends Model
     {
         return $this->hasMany(Question::class);
     }
+    public function exams()
+{
+    return $this->belongsToMany(Exam::class);
+}
+
 }
